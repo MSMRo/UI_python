@@ -1,10 +1,18 @@
 import sys
 import numpy as np
 import neurokit2 as nk
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QMainWindow
 from PyQt6.QtCore import QTimer
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        pantalla = VisorSeñales()
+
+        self.setCentralWidget(pantalla)
 
 class VisorSeñales(QWidget):
     def __init__(self):
@@ -15,7 +23,7 @@ class VisorSeñales(QWidget):
         self.resize(800, 600)
         
         # 2. Configuración de los datos (NeuroKit2)
-        self.fs = 250  # Frecuencia de muestreo (Hz)
+        self.fs = 1000  # Frecuencia de muestreo (Hz)
         # Simulamos 5 minutos de ECG para tener suficientes datos
         self.senal_completa = nk.ecg_simulate(duration=300, sampling_rate=self.fs)
         self.indice_actual = 0
@@ -104,6 +112,6 @@ class VisorSeñales(QWidget):
 # 7. Bloque de ejecución principal
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    ventana = VisorSeñales()
+    ventana = MainWindow() #VisorSeñales()
     ventana.show()
     sys.exit(app.exec())
