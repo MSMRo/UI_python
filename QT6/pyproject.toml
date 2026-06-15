@@ -1,0 +1,17 @@
+[project]
+name = "qt6"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.3.0",
+    "neurokit2>=0.2.13",
+    "numpy>=2.4.6",
+    "padasip>=1.2.2",
+    "pandas>=2.3.3",
+    "pyqt6>=6.11.0",
+    "pywavelets>=1.9.0",
+    "scikit-learn>=1.9.0",
+    "scipy>=1.17.1",
+]
