@@ -4,3 +4,7 @@ Estas plantillas permitirán crear frontend usando la libreria de PyQt6 en pytho
 EL gestor de paquetes es ```uv```.
 
 > uv sync
+
+## código: real_tim1.py
+
+![](./imgs/gui_realtime1.png)
